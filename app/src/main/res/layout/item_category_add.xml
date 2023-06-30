@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="data"
+            type="com.maruchan.notes.data.room.category.Category" />
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/_8sdp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Category category"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppinsregular"
+        android:textSize="@dimen/_13sdp"
+        android:text='@{data.category}'/>
+
+</LinearLayout>
+</layout>

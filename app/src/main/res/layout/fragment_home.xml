@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.maruchan.notes.data.room.user.User" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.home.fragment.HomeFragment">
+
+
+
+        <LinearLayout
+            android:id="@+id/linear_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/search_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_65sdp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:background="@drawable/custome_background_search"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/_5sdp"
+                android:elevation="30dp"
+                android:focusable="true"
+                android:hint="Search"
+                android:imeOptions="actionSearch"
+                android:padding="@dimen/_5sdp"
+                android:paddingStart="@dimen/_11sdp"
+                app:defaultQueryHint="search notes"
+                app:queryHint="search notes" />
+
+            <EditText
+                android:id="@+id/search_category"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_65sdp"
+              android:layout_marginEnd="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:background="@drawable/custome_background_search"
+                android:clickable="true"
+                android:drawableEnd="@drawable/ic_drop_down"
+                android:elevation="30dp"
+                android:focusable="true"
+                android:imeOptions="actionSearch"
+                android:padding="@dimen/_6sdp"
+                android:paddingStart="@dimen/_5sdp"
+                app:defaultQueryHint="search notes"
+                app:queryHint="search notes"
+                android:hint="Category" />
+
+        </LinearLayout>
+
+
+
+
+    <!--    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_home"
+            app:spanCount="2"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_note" />-->
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_home">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_home"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:spanCount="2"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                tools:listitem="@layout/item_note" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:scaleType="fitEnd"
+            android:src="@drawable/ic_post_add"
+            app:fabCustomSize="70dp"
+            android:layout_marginStart="@dimen/_230sdp"
+            android:layout_marginTop="@dimen/_440sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/tv_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:gravity="center"
+            android:src="@drawable/img_empty_search"
+            android:textSize="@dimen/_50sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_home"
+            app:layout_constraintTop_toTopOf="@id/linear_home"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

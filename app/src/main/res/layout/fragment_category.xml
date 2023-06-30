@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.maruchan.notes.data.room.user.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.category.fragment.CategoryFragment">
+
+        <LinearLayout
+            android:id="@+id/linear_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/search_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_75sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="@drawable/custome_background_search"
+                android:clickable="true"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="@dimen/_8sdp"
+                android:elevation="30dp"
+                android:focusable="true"
+                android:imeOptions="actionSearch"
+                android:padding="@dimen/_5sdp"
+                android:paddingStart="@dimen/_10sdp"
+                app:defaultQueryHint="search notes"
+                app:queryHint="search notes"
+                android:hint="Search" />
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_category"
+                app:layout_constraintTop_toTopOf="@id/search_category">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="10"
+                    tools:listitem="@layout/item_category" />
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/tv_empty"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_300sdp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_130sdp"
+            android:gravity="center"
+            android:src="@drawable/img_empty_search"
+            android:textSize="@dimen/_50sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_add_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_230sdp"
+            android:layout_marginTop="@dimen/_440sdp"
+            android:clickable="true"
+            android:scaleType="center"
+            android:src="@drawable/ic_forms_add_on"
+            app:fabCustomSize="70dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

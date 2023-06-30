@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/yellow"
+        tools:context=".ui.register.RegisterActivity">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/ic_arrow_back_"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023" />
+
+        <ImageView
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_130sdp"
+            android:alpha="0.3"
+            android:src="@drawable/ic_note_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:text="Register"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:gravity="start"
+                android:text="Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_name_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:gravity="start"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:gravity="start"
+                android:text="Phone Number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_phone_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:gravity="start"
+                android:inputType="phone"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:gravity="start"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_email_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                android:gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:gravity="start"
+                android:text="Password"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/et_password_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints="password"
+                    android:background="@color/transparent"
+                    android:gravity="center_vertical"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/must"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="start"
+                android:text="*Password must be 8 characters"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:id="@+id/tv_password_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="start"
+                android:text="Password Confirmation"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/til_password" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginEnd="@dimen/_32sdp"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true">
+
+
+                <EditText
+                    android:id="@+id/et_confirm_password_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints="password"
+                    android:background="@color/transparent"
+                    android:gravity="center_vertical"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp"
+
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/con_must"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="start"
+                android:text="*Password must be 8 characters"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/til_confirm_password" />
+
+            <TextView
+                android:id="@+id/tv_password_not_match"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_60sdp"
+                android:layout_marginEnd="@dimen/_150sdp"
+                android:gravity="start"
+                android:text="Password didn't match"
+                android:textColor="@color/text_red"
+                android:textSize="@dimen/_12ssp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/con_must" />
+
+            <TextView
+                android:id="@+id/btn_register"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:background="@drawable/custom_buttom"
+                android:gravity="center"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/_10sdp"
+                android:text="Register"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/con_must" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_have_an_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?selectableItemBackground"
+                    android:gravity="center"
+                    android:text="Have an account?"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13ssp" />
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:foreground="?selectableItemBackground"
+                    android:text="Login"
+                    android:textColor="@color/blue40"
+                    android:textSize="@dimen/_13ssp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

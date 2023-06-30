@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.maruchan.notes.data.room.note.Note" />
+
+        <variable
+            name="category"
+            type="com.maruchan.notes.data.room.category.Category" />
+
+        <variable
+            name="photo"
+            type="String" />
+
+        <variable
+            name="imageFile"
+            type="java.io.File" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.detail.AddNotesActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/linear_detail_note"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/yellow10"
+                android:orientation="horizontal"
+                android:padding="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/btn_save"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:contentDescription="@string/todo2"
+                    android:foreground="?selectableItemBackground"
+                    android:src="@drawable/ic_back_black" />
+
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    tools:ignore="ScrollViewSize">
+
+                    <EditText
+                        android:id="@+id/et_add_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
+                        android:background="@color/transparent"
+                        android:fontFamily="@font/poppinsbold"
+                        android:gravity="clip_vertical"
+                        android:hint="@string/title"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text='@{data.title}'
+                        android:textSize="@dimen/_20ssp"
+                        tools:ignore="Autofill,RtlSymmetry,TextFields" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/date_not"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_18sdp"
+                            android:fontFamily="@font/poppinsregular"
+                            android:gravity="start"
+                            android:hint="@string/create_at_april_7_1_2020"
+                            android:padding="@dimen/_5sdp"
+                            android:text='@{"Create At: "+ data.created_at_formatted}'
+                            android:textSize="@dimen/_10ssp" />
+
+                        <TextView
+                            android:id="@+id/character_strip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppinsregular"
+                            android:gravity="start"
+                            android:text="@string/l"
+                            android:textSize="15sp" />
+
+
+                        <TextView
+                            android:id="@+id/character"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppinsregular"
+                            android:gravity="start"
+                            android:hint="@string/_201"
+                            android:padding="@dimen/_5sdp"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/character_Character"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/poppinsregular"
+                            android:gravity="start"
+                            android:text="@string/character"
+                            android:textColor="@color/black"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/date_nott"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/_19sdp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="start"
+                        android:hint="@string/updste_at_april_7_1_2020"
+                        android:padding="@dimen/_5sdp"
+                        android:text='@{"Update At: "+ data.updated_at_formatted}'
+                        android:textSize="@dimen/_10ssp" />
+<!--
+                    <TextView
+                        android:id="@+id/category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/_19sdp"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="start"
+                        android:hint="@string/updste_at_april_7_1_2020"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_10ssp" />-->
+
+                    <AutoCompleteTextView
+                        android:id="@+id/category_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_150sdp"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:dropDownAnchor="@id/category_add"
+                        android:hint="@string/add_category"
+                        android:padding="@dimen/_8sdp"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_13ssp"
+                        tools:ignore="RtlSymmetry" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageNote"
+                            imageFile='@{imageFile}'
+                            imageUrl='@{data.photo}'
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_115sdp"
+                            android:scaleType="fitXY"
+                            android:visibility="gone"
+                            tools:ignore="ContentDescription" />
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/fabDeleteImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:contentDescription="@string/todo"
+                            android:src="@drawable/ic_delete"
+                            android:visibility="gone" />
+
+                    </FrameLayout>
+
+                    <EditText
+                        android:id="@+id/et_add_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
+                        android:background="@color/transparent"
+                        android:fontFamily="@font/poppinsregular"
+                        android:gravity="clip_vertical"
+                        android:hint="Content"
+                        android:padding="8dp"
+                        android:text='@{data.content}'
+                        app:counterEnabled="true"
+                        tools:ignore="Autofill,HardcodedText,TextFields" />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_detail_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custome_background_notes"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_category"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_category"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageView
+                android:id="@+id/btn_delet"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_delete"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/btn_favourite"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:background='@{data.favorite ? @drawable/ic_favorite_full : @drawable/ic_favorite_border}'
+                android:foreground="?selectableItemBackground"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageView
+                android:id="@+id/btn_share"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:contentDescription="@string/todo2"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_share" />
+
+            <ImageView
+                android:id="@+id/btn_bold"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:contentDescription="@string/todo2"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_bold" />
+
+            <ImageView
+                android:id="@+id/btn_italic"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:contentDescription="@string/todo2"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_italic" />
+
+            <ImageView
+                android:id="@+id/tv_add_image"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:contentDescription="@string/todo2"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_image_yellow" />
+
+            <ImageView
+                android:id="@+id/btn_underlined"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:contentDescription="@string/todo2"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_underlined" />
+
+            <ImageView
+                android:id="@+id/btn_format_strikethrough"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_11sdp"
+                android:contentDescription="@string/todo2"
+                android:foreground="?selectableItemBackground"
+                android:src="@drawable/ic_format_strikethrough" />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

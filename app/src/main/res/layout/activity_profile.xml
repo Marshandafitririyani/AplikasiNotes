@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.maruchan.notes.data.room.user.User" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.profile.ProfileActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linear_layout_middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/ib_back_red_profile"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_33sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/custom_buttom_two"
+                    android:src="@drawable/ic_back_black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:gravity="center"
+                    android:text="My Profile"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/ib_logout_profile"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_33sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/custom_buttom_two"
+                    android:src="@drawable/ic_logout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/img_profile"
+                imageUrlAvatar='@{user.photo}'
+                userHelper='@{user.name}'
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:padding="@dimen/_8sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:text="Akun"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_name_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:background="@drawable/custome_background_search"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:hint="Name Empty"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_11sdp"
+                android:text='@{user.name}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/tv_email_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:background="@drawable/custome_background_search"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Email Empty"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/_10sdp"
+                android:text='@{user.email}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <TextView
+                android:id="@+id/tv_phone_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@drawable/custome_background_search"
+                android:drawableStart="@drawable/ic_phone"
+                android:drawablePadding="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:hint="Phone Empty"
+                android:inputType="phone"
+                android:padding="@dimen/_10sdp"
+                android:text='@{user.phone}'
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_edit_profile"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_90sdp"
+                android:background="@drawable/custom_buttom_two"
+                android:foreground="?selectableItemBackground"
+                android:text="Edit Profile"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15ssp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
