@@ -37,8 +37,10 @@ class LoginViewModel @Inject constructor(
                     val status = response.getInt(ApiCode.STATUS)
                     val token = response.getJSONObject(ApiCode.DATA).getJSONObject("token").getString("access_token")
                     session.setValue(Const.TOKEN.API_TOKEN, token)
-                    emailOrPhone?.let { session.setValue(Const.BIOMETRIC.EMAIL,it)} //TODO: tambahan
-                    password?.let { session.setValue(Const.BIOMETRIC.PASSWORD,it) } //TODO: tambahan
+                    session.setValue(Const.BIOMETRIC.EMAIL,emailOrPhone)
+                    session.setValue(Const.BIOMETRIC.PASSWORD,password)
+//                    emailOrPhone.let { session.setValue(Const.BIOMETRIC.EMAIL,it)} //TODO: tambahan
+//                    password.let { session.setValue(Const.BIOMETRIC.PASSWORD,it) } //TODO: tambahan
                     userDao.insert(data.copy(idRoom = 1))
                     if (status == ApiCode.SUCCESS) {
                         val message = response.getString(ApiCode.MESSAGE)

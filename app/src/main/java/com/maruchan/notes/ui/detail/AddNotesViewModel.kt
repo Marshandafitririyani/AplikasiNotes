@@ -1,6 +1,5 @@
 package com.maruchan.notes.ui.detail
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.crocodic.core.api.ApiCode
 import com.crocodic.core.api.ApiObserver
@@ -12,7 +11,6 @@ import com.google.gson.Gson
 import com.maruchan.notes.api.ApiService
 import com.maruchan.notes.base.BaseViewModel
 import com.maruchan.notes.data.room.category.Category
-import com.maruchan.notes.data.room.category.Category_by_one
 import com.maruchan.notes.data.room.user.UserDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -39,56 +37,52 @@ class AddNotesViewModel @Inject constructor(
     private val _saveFavourite = MutableSharedFlow<ApiResponse>()
     val saveFavourite = _saveFavourite.asSharedFlow()
 
-    private val _saveGetCategoryName = MutableSharedFlow<Category>()
+    private val _saveNotes = MutableSharedFlow<ApiResponse>()
+    val saveNotes = _saveNotes.asSharedFlow()
+
+    private val _saveGetCategoryName = MutableSharedFlow<Category?>()
     val saveGetCategoryName = _saveGetCategoryName.asSharedFlow()
 
-    private val _saveGetCategory = MutableSharedFlow<List<Category_by_one>>()
+    private val _saveGetCategory = MutableSharedFlow<List<Category?>>()
     val saveGetCategory = _saveGetCategory.asSharedFlow()
 
 
-    /*    fun getCtegoryNamee(categoryId: String) = viewModelScope.launch {
-           ApiObserver({ apiService.getCategory() }, false, object : ApiObserver.ResponseListener {
-               override suspend fun onSuccess(response: JSONObject) {
-   //                val data = response.getJSONArray(ApiCode.DATA).toList<Category>(gson)
-   //                val school = data.last { it.id == categoryId }
-                   val data = response.getJSONObject(ApiCode.DATA).toObject<Category>(gson)
-   //_saveGetCategoryName.emit(listOf(school))
-                  _saveGetCategoryName.emit(data)
-               }
-
-               override suspend fun onError(response: ApiResponse) {
-                   Log.d("cek error", "err")
-               }
-
-
-           })
-
-
-       }*/
-
     fun getCategoryName(id: String) = viewModelScope.launch {
+        _apiResponse.emit(ApiResponse().responseLoading())
         ApiObserver(
-            { apiService.getCategoryById(id) },
+            {
+                apiService.getCategoryById(id)
+            },
             false,
             object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
-                    /*val data = response.getJSONArray(ApiCode.DATA).toList<Category>(gson)
-                    val school = data.last { it.category == id }
-                    _saveGetCategoryName.emit(school)*/
                     val data = response.getJSONObject(ApiCode.DATA).toObject<Category>(gson)
                     _saveGetCategoryName.emit(data)
-                    Log.d("cek data category name", "$data")
-
-
+                    _apiResponse.emit(ApiResponse().responseSuccess("Category"))
                 }
 
                 override suspend fun onError(response: ApiResponse) {
-                    Log.d("cek error category name", "err")
+                    super.onError(response)
+                    _apiResponse.emit(ApiResponse().responseError())
                 }
+            })
+    }
 
-
+    fun getCategory() = viewModelScope.launch {
+        ApiObserver({ apiService.getCategory() }, false, object : ApiObserver.ResponseListener {
+            override suspend fun onSuccess(response: JSONObject) {
+                val data = response.getJSONArray(ApiCode.DATA).toList<Category>(gson)
+                _saveGetCategory.emit(data)
+                _apiResponse.emit(ApiResponse().responseSuccess("Category"))
             }
-        )
+
+            override suspend fun onError(response: ApiResponse) {
+                super.onError(response)
+                _apiResponse.emit(ApiResponse().responseError())
+            }
+
+
+        })
 
 
     }
@@ -99,39 +93,36 @@ class AddNotesViewModel @Inject constructor(
             if (photo != null) {
                 val fileBody = photo.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                 val filePart = MultipartBody.Part.createFormData("photo", photo.name, fileBody)
-                _apiResponse.emit(ApiResponse().responseLoading())
+                _saveNotes.emit(ApiResponse().responseLoading())
                 ApiObserver(
                     { apiService.createNoteWithPhoto(title, content, categoryId, filePart) },
                     false,
                     object : ApiObserver.ResponseListener {
                         override suspend fun onSuccess(response: JSONObject) {
-                            _apiResponse.emit(ApiResponse().responseSuccess("Create Note With Photo Success"))
+                            _saveNotes.emit(ApiResponse().responseSuccess("Notes"))
 
                         }
 
                         override suspend fun onError(response: ApiResponse) {
                             super.onError(response)
-                            _apiResponse.emit(ApiResponse().responseError())
+                            _saveNotes.emit(ApiResponse().responseError())
                         }
                     }
                 )
 
             } else {
-                _apiResponse.emit(ApiResponse().responseLoading())
+                _saveNotes.emit(ApiResponse().responseLoading())
                 ApiObserver(
                     { apiService.createNote(title, content, categoryId) },
                     false,
                     object : ApiObserver.ResponseListener {
                         override suspend fun onSuccess(response: JSONObject) {
-                            Log.d("cek sss", "success")
-                            _apiResponse.emit(ApiResponse().responseSuccess())
+                            _saveNotes.emit(ApiResponse().responseSuccess("Notes"))
                         }
 
                         override suspend fun onError(response: ApiResponse) {
                             super.onError(response)
-                            Log.d("cek err", "error")
-
-                            _apiResponse.emit(ApiResponse().responseError())
+                            _saveNotes.emit(ApiResponse().responseError())
                         }
                     })
             }
@@ -149,40 +140,37 @@ class AddNotesViewModel @Inject constructor(
             if (photo != null) {
                 val fileBody = photo.asRequestBody("multipart/form-data".toMediaTypeOrNull())
                 val filePart = MultipartBody.Part.createFormData("photo", photo.name, fileBody)
-                _apiResponse.emit(ApiResponse().responseLoading())
+                _saveNotes.emit(ApiResponse().responseLoading())
                 ApiObserver(
                     { apiService.updateNoteWithPhoto(id, title, content, categoryId, filePart) },
                     false,
                     object : ApiObserver.ResponseListener {
                         override suspend fun onSuccess(response: JSONObject) {
 
-                            _apiResponse.emit(ApiResponse().responseSuccess("Update Note With Photo Success"))
+                            _saveNotes.emit(ApiResponse().responseSuccess("Notes"))
 
                         }
 
                         override suspend fun onError(response: ApiResponse) {
                             super.onError(response)
-                            _apiResponse.emit(ApiResponse().responseError())
+                            _saveNotes.emit(ApiResponse().responseError())
                         }
                     }
                 )
 
             } else {
-                _apiResponse.emit(ApiResponse().responseLoading())
+                _saveNotes.emit(ApiResponse().responseLoading())
                 ApiObserver(
                     { apiService.updateNote(id, title, content, categoryId) },
                     false,
                     object : ApiObserver.ResponseListener {
                         override suspend fun onSuccess(response: JSONObject) {
-                            Log.d("cek sss", "success")
-                            _apiResponse.emit(ApiResponse().responseSuccess())
+                            _saveNotes.emit(ApiResponse().responseSuccess("Notes"))
                         }
 
                         override suspend fun onError(response: ApiResponse) {
                             super.onError(response)
-                            Log.d("cek err", "error")
-
-                            _apiResponse.emit(ApiResponse().responseError())
+                            _saveNotes.emit(ApiResponse().responseError())
                         }
                     })
             }
@@ -190,18 +178,18 @@ class AddNotesViewModel @Inject constructor(
         }
 
     fun deleteNote(id: String) = viewModelScope.launch {
-        _apiResponse.emit(ApiResponse().responseLoading())
+        _saveNotes.emit(ApiResponse().responseLoading())
         ApiObserver(
             { apiService.deleteNote(id) },
             false,
             object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
-                    _apiResponse.emit(ApiResponse().responseSuccess())
+                    _saveNotes.emit(ApiResponse().responseSuccess("Notes"))
                 }
 
                 override suspend fun onError(response: ApiResponse) {
                     super.onError(response)
-                    _apiResponse.emit(ApiResponse().responseError())
+                    _saveNotes.emit(ApiResponse().responseError())
                 }
             })
     }
@@ -234,21 +222,5 @@ class AddNotesViewModel @Inject constructor(
 
     }
 
-    fun getCategory() = viewModelScope.launch {
-        ApiObserver({ apiService.getCategory() }, false, object : ApiObserver.ResponseListener {
-            override suspend fun onSuccess(response: JSONObject) {
-                val data = response.getJSONArray(ApiCode.DATA).toList<Category_by_one>(gson)
-                Log.d("cek to list category", "ss")
-                _saveGetCategory.emit(data)
-            }
 
-            override suspend fun onError(response: ApiResponse) {
-                Log.d("cek error", "err")
-            }
-
-
-        })
-
-
-    }
 }

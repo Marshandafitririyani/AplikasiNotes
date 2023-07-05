@@ -1,6 +1,5 @@
 package com.maruchan.notes.data.helper
 
-import android.util.Log
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
@@ -17,8 +16,6 @@ class ViewModelHelperAvatar {
         fun loadImageRecipe(view: ImageView, imageUrlAvatar: String?, userHelper: String?) {
 
             view.setImageDrawable(null)
-            Log.d("imageUrl", "imageUrl$imageUrlAvatar")
-            Log.d("imageUrl", "userHelper$userHelper")
 
             val avatar = StringHelper.generateTextDrawable(
                 StringHelper.getInitial(userHelper?.trim()),
@@ -26,7 +23,6 @@ class ViewModelHelperAvatar {
             )
 
             if (imageUrlAvatar.isNullOrEmpty()) {
-                Log.d("imageUrl", "image$imageUrlAvatar ${avatar.minimumWidth}")
                 view.setImageDrawable(avatar)
 
             } else {

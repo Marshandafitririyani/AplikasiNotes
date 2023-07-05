@@ -62,18 +62,13 @@
                 android:id="@+id/et_email_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_13sdp"
+                android:paddingStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_32sdp"
                 android:layout_marginEnd="@dimen/_32sdp"
-                android:inputType="textEmailAddress"
-                android:padding="@dimen/_10sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:inputType="textEmailAddress" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,24 +90,25 @@
                 android:id="@+id/kk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_32sdp"
-                android:layout_marginEnd="@dimen/_32sdp"
-                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginEnd="@dimen/_35sdp"
                 app:hintEnabled="false"
+                android:gravity="start"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:passwordToggleEnabled="true">
 
+
                 <EditText
                     android:id="@+id/et_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/_13ssp"
+                    android:paddingStart="@dimen/_3sdp"
                     android:background="@color/transparent"
-                    android:padding="@dimen/_10sdp"
-                    android:inputType="textPassword"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_13sdp" />
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -125,21 +121,21 @@
                     android:id="@+id/must_character"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_30sdp"
                     android:gravity="start"
                     android:text="*Password must be 8 characters"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_11sdp" />
+                    android:textSize="@dimen/_11ssp" />
 
                 <TextView
                     android:id="@+id/forget_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_30sdp"
                     android:gravity="start"
                     android:text="Forget?"
                     android:textColor="@color/blue40"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_12ssp" />
             </LinearLayout>
 
 

@@ -20,7 +20,6 @@ class ViewBindingHelper {
                 Glide
                     .with(view.context)
                     .load(imageUrl)
-//                    .placeholder(R.drawable.img_loading)
                     .apply(RequestOptions.centerCropTransform())
                     .error(R.drawable.img_placeholder)
                     .into(view)
@@ -30,24 +29,28 @@ class ViewBindingHelper {
                     Glide
                         .with(view.context)
                         .load(imageUrl)
-//                        .placeholder(R.drawable.img_loading)
                         .into(view)
 
                 }
 
             }
-            if(imageFile != null ){
+            if (imageFile != null) {
                 Glide
                     .with(view.context)
                     .load(imageFile)
-                        .placeholder(R.drawable.img_loading)
+                    .placeholder(R.drawable.img_loading)
                     .error(R.drawable.img_placeholder)
 
                     .into(view)
             }
 
         }
-        fun File.writeBitmap(bitmap: Bitmap, format: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG, quality: Int = 100) {
+
+        fun File.writeBitmap(
+            bitmap: Bitmap,
+            format: Bitmap.CompressFormat = Bitmap.CompressFormat.PNG,
+            quality: Int = 100
+        ) {
             outputStream().use { out ->
                 bitmap.compress(format, quality, out)
                 out.flush()

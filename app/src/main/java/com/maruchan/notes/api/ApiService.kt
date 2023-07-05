@@ -7,7 +7,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/auth/login")
     suspend fun login(
-        @Field("email_or_phone") email_or_phone: String?,
+        @Field("email_or_phone") emailOrPhone: String?,
         @Field("password") password: String?
     ): String
 
@@ -18,7 +18,7 @@ interface ApiService {
         @Field("phone") phone: String?,
         @Field("email") email: String?,
         @Field("password") password: String?,
-        @Field("password_confirmation") password_confirmation: String?
+        @Field("password_confirmation") passwordConfirmation: String?
     ): String
 
     @FormUrlEncoded
@@ -37,13 +37,12 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/user/edit-password")
     suspend fun editPassword(
-        @Field("new_password") new_password: String?,
-        @Field("password_confirmation") password_confirmation: String?
+        @Field("new_password") newPassword: String?,
+        @Field("password_confirmation") passwordConfirmation: String?
     ): String
 
     @GET("api/auth/me")
     suspend fun getProfile(): String
-
 
     @GET("api/note/index")
     suspend fun getNotes(): String
@@ -51,9 +50,9 @@ interface ApiService {
     @GET("api/category/index")
     suspend fun getCategory(): String
 
-    @GET("api/category/{id}")
+    @GET("api/category/{categories_id}")
     suspend fun getCategoryById(
-        @Path("id") id: String
+        @Path("categories_id") categoriesId: String?
     ): String
 
     @POST("api/auth/logout")
@@ -64,7 +63,7 @@ interface ApiService {
     suspend fun createNote(
         @Field("title") title: String?,
         @Field("content") content: String?,
-        @Field("categories_id") categories_id: String?,
+        @Field("categories_id") categoriesId: String?,
     ): String
 
     @FormUrlEncoded
@@ -73,17 +72,17 @@ interface ApiService {
         @Path("id") id: String?,
         @Field("title") title: String?,
         @Field("content") content: String?,
-        @Field("categories_id") categories_id: String?,
+        @Field("categories_id") categoriesId: String?,
     ): String
 
-@Multipart
-@POST("api/note/create")
-suspend fun createNoteWithPhoto(
-    @Part("title") title: String?,
-    @Part("content") content: String?,
-    @Part("categories_id") categories_id: String?,
-    @Part photo: MultipartBody.Part?
-): String
+    @Multipart
+    @POST("api/note/create")
+    suspend fun createNoteWithPhoto(
+        @Part("title") title: String?,
+        @Part("content") content: String?,
+        @Part("categories_id") categoriesId: String?,
+        @Part photo: MultipartBody.Part?
+    ): String
 
     @Multipart
     @POST("api/note/edit/{id}")
@@ -91,7 +90,7 @@ suspend fun createNoteWithPhoto(
         @Path("id") id: String?,
         @Part("title") title: String?,
         @Part("content") content: String?,
-        @Part("categories_id") categories_id: String?,
+        @Part("categories_id") categoriesId: String?,
         @Part photo: MultipartBody.Part?
     ): String
 

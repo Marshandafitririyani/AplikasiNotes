@@ -12,6 +12,7 @@ import com.crocodic.core.extension.toObject
 import com.google.gson.Gson
 import com.maruchan.notes.api.ApiService
 import com.maruchan.notes.base.BaseViewModel
+import com.maruchan.notes.data.room.category.Category
 import com.maruchan.notes.data.room.note.Note
 import com.maruchan.notes.data.room.user.User
 import com.maruchan.notes.data.room.user.UserDao
@@ -35,6 +36,9 @@ class HomeViewModel @Inject constructor(
 
     private val _savegetNote = MutableSharedFlow<List<Note>>()
     val savegetNote = _savegetNote.asSharedFlow()
+
+    private val _saveGetCategoryName = MutableSharedFlow<Category?>()
+    val saveGetCategoryName = _saveGetCategoryName.asSharedFlow()
 
     fun getProfile() = viewModelScope.launch {
         ApiObserver(

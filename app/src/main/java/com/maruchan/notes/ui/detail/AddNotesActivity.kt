@@ -5,7 +5,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -23,23 +22,22 @@ import com.maruchan.notes.base.BaseActivity
 import com.maruchan.notes.const.Const
 import com.maruchan.notes.data.helper.ViewBindingHelper.Companion.writeBitmap
 import com.maruchan.notes.data.room.category.Category
-import com.maruchan.notes.data.room.category.Category_by_one
 import com.maruchan.notes.data.room.note.Note
 import com.maruchan.notes.databinding.ActivityAddNotesBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.io.File
+import kotlin.collections.ArrayList
 
 @AndroidEntryPoint
 class AddNotesActivity :
     BaseActivity<ActivityAddNotesBinding, AddNotesViewModel>(R.layout.activity_add_notes) {
 
     private var notes: Note? = null
-    private var category: Category? = null
     private var oldTitle: String? = null
     private var oldContent: String? = null
     private var oldCategory: String? = null
-    private val categoryByOne = ArrayList<Category_by_one?>()
+    private val categoryByOne = ArrayList<Category?>()
     private var categoryId: String? = null
     private var notePhoto: File? = null
 
@@ -49,43 +47,38 @@ class AddNotesActivity :
         initClick()
         observe()
         getCategory()
-        getCategoryName(category?.category.toString())
-        Log.d("cek category get name", "$category")
 
         notes = intent.getParcelableExtra(Const.NOTE.NOTE)
         oldTitle = notes?.title
         oldContent = notes?.content
         oldCategory = notes?.categories_id
-        Log.d("cek category id to string", "$oldCategory")
-//        oldCategory = category?.category
-//        binding.data = notes
         binding.photo = notes?.photo
         binding.character.text = notes?.content?.length.toString()
         binding.imageNote.isVisible = notes?.photo?.isNullOrEmpty() == false
 
-//        getCategoryName(notes?.categories_id.toString())
-//getCategoryName(oldCategory.toString())
-//        Log.d("cek category by id", "${getCategoryName(oldCategory.toString())}")
 
     }
 
     private fun initClick() {
         binding.btnBold.setOnClickListener {
-            binding.root.snacked("Features not yet available")
+            binding.root.snacked(R.string.available)
         }
         binding.btnUnderlined.setOnClickListener {
-            binding.root.snacked("Features not yet available")
+            binding.root.snacked(R.string.available)
         }
         binding.btnItalic.setOnClickListener {
-            binding.root.snacked("Features not yet available")
+            binding.root.snacked(R.string.available)
         }
         binding.btnFormatStrikethrough.setOnClickListener {
-            binding.root.snacked("Features not yet available")
+            binding.root.snacked(R.string.available)
+        }
+        binding.btnCategory.setOnClickListener {
+            binding.root.snacked(R.string.available_category)
         }
         binding.btnSave.setOnClickListener {
             validateNote()
         }
-        binding.btnDelet.setOnClickListener {
+        binding.btnDelete.setOnClickListener {
             deleteNotes()
         }
 
@@ -117,20 +110,23 @@ class AddNotesActivity :
                 launch {
                     viewModel.user.collect {
                         binding.data = notes
-
+                        getCategoryName()
+                        setResult(456)
                     }
                 }
                 launch {
-                    viewModel.apiResponse.collect {
+                    viewModel.saveNotes.collect {
                         when (it.status) {
-                            ApiStatus.LOADING -> loadingDialog.show("Loading...")
+                            ApiStatus.LOADING -> loadingDialog.show(R.string.loading)
                             ApiStatus.SUCCESS -> {
                                 loadingDialog.dismiss()
                                 setResult(456)
                                 finish()
+
                             }
                             else -> loadingDialog.setResponse(it.message ?: return@collect)
                         }
+
                     }
                 }
                 launch {
@@ -146,21 +142,20 @@ class AddNotesActivity :
                 }
                 launch {
                     viewModel.saveGetCategory.collect { category ->
-                        Log.d("cek category", "$category")
                         categoryByOne.addAll(category)
 
                     }
                 }
                 launch {
-                    viewModel.saveGetCategoryName.collect { categoryById ->
-                        binding.categoryAdd.text(categoryById.category)
-                        Log.d("cek by id observe", "$categoryById")
+                    viewModel.saveGetCategoryName.collect { data ->
+                        binding.categoryAdd.text(data?.category)
                     }
 
                 }
             }
         }
     }
+
 
     private fun gallery() {
         activityLauncher.openGallery(this) { file, exception ->
@@ -181,8 +176,8 @@ class AddNotesActivity :
         val content = binding.etAddContent.textOf()
         if (binding.etAddTitle.isEmptyRequired(R.string.label_must_fill) ||
             binding.etAddContent.isEmptyRequired(R.string.label_must_fill) ||
-            binding.categoryAdd.isEmptyRequired(R.string.label_must_fill))
-        {
+            binding.categoryAdd.isEmptyRequired(R.string.label_must_fill)
+        ) {
             return
         }
         when {
@@ -195,13 +190,11 @@ class AddNotesActivity :
             notes != null && notePhoto == null -> {
                 viewModel.updateNote(notes?.id, title, content, categoryId)
             }
-            notes != null && notePhoto != null -> {
-                viewModel.updateNote(notes?.id, title, content, categoryId, notePhoto)
-            }
+            else -> viewModel.updateNote(notes?.id, title, content, categoryId, notePhoto)
 
         }
-
     }
+
 
     private fun shareText() {
         val sendIntent = Intent()
@@ -229,8 +222,12 @@ class AddNotesActivity :
         viewModel.getCategory()
     }
 
-    private fun getCategoryName(id: String) {
-        viewModel.getCategoryName(id)
+    private fun getCategoryName() {
+        val idCategory = notes?.categories_id
+        if (idCategory != null) {
+            viewModel.getCategoryName(idCategory)
+
+        }
     }
 
     private fun autocompleteSpinner() {
@@ -245,10 +242,7 @@ class AddNotesActivity :
         }
         autoCompleteSpinner.setOnItemClickListener { parent, view, position, id ->
             val selectedItem = categoryByOne[position]
-            Log.d("cek category 2", "${categoryByOne.size}")
-
             categoryId = selectedItem?.id!!
-            Log.d("cek category id", "${categoryId}")
 
         }
     }

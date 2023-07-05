@@ -11,16 +11,17 @@ plugins {
 
 android {
     namespace 'com.maruchan.notes'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.maruchan.notes"
-        minSdk 24
-        targetSdk 33
+        minSdk 26
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -43,6 +44,9 @@ android {
 }
 
 dependencies {
+
+    //biometric
+    implementation 'androidx.biometric:biometric:1.1.0'
 
     //swipRefres
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")

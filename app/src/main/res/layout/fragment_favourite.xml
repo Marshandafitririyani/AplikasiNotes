@@ -66,16 +66,17 @@
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        <ImageView
+        <TextView
             android:id="@+id/tv_empty"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginTop="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_220sdp"
             android:layout_marginEnd="@dimen/_40sdp"
             android:gravity="center"
-            android:src="@drawable/img_empty_search"
-            android:textSize="@dimen/_50sdp"
+            android:text="File Note Favourite Is Empty"
+            android:textSize="@dimen/_15ssp"
+            android:fontFamily="@font/poppinsregular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"

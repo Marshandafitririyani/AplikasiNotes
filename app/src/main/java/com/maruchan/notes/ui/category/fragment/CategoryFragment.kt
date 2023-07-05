@@ -38,13 +38,12 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
                 val categoryId = item.id
 
                 holder.binding.data = item
-                //TODO:fungsi delete
                 holder.binding.imgDelete.setOnClickListener {
                     val builder = android.app.AlertDialog.Builder(requireContext())
                     builder.setMessage("Do you want to delete the category")
                         .setCancelable(false)
                         .setPositiveButton("Delete") { dialog, id ->
-                            categoryId?.let {
+                            categoryId.let {
                                 viewModel.deleteCategory(id = it)
                             }
                         }
@@ -55,7 +54,6 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
                     alert.show()
 
                 }
-                //Todo: Fungsi edit category
                 holder.binding.imgEdit.setOnClickListener {
                     val builder = AlertDialog.Builder(requireContext())
                     val customLayout: View =
@@ -77,7 +75,6 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
                         val category = editCategory.textOf()
                         viewModel.editCategory(id.toString(), category)
                         dialog.dismiss()
-                        Log.d("cek cte", "viewModel")
 
                     }
                     dialog.show()
@@ -148,9 +145,7 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
             }
             launch {
                 viewModel.saveCreatCategory.collect {
-                    println("Check Create Category")
                     if (it.status == ApiStatus.SUCCESS) {
-                        println("Check Success")
                         getCategory()
                     }
                 }
@@ -178,7 +173,6 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
             val category = editCategory.textOf()
             viewModel.creatCategory(category)
             dialog.dismiss()
-            Log.d("cek cte", "viewModel")
 
         }
         dialog.show()
@@ -186,8 +180,6 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
 
     private fun getCategory() {
         viewModel.getCategory()
-        Log.d("cek getCategory", "ada")
-
     }
 
 

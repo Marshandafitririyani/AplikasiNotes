@@ -47,9 +47,9 @@ class DataModule {
 
         val okHttpClient = OkHttpClient().newBuilder()
             .sslSocketFactory(sslContext.socketFactory, unsafeTrustManager)
-            .connectTimeout(90, TimeUnit.SECONDS)
-            .readTimeout(90, TimeUnit.SECONDS)
-            .writeTimeout(90, TimeUnit.SECONDS)
+            .connectTimeout(Const.TIMEOUT.NINETY_LONG, TimeUnit.SECONDS)
+            .readTimeout(Const.TIMEOUT.NINETY_LONG, TimeUnit.SECONDS)
+            .writeTimeout(Const.TIMEOUT.NINETY_LONG, TimeUnit.SECONDS)
             .addInterceptor { chain ->
                 val original = chain.request()
                 val token = session.getString(Const.TOKEN.API_TOKEN)
@@ -59,9 +59,6 @@ class DataModule {
                     .header("Authorization", "Bearer $token")
                     .header("Cookie", "laravel_session=rRbRroheLMRtax4ctqsv2EXjy2EXiRKxGdcJxcvW")
                     .method(original.method, original.body)
-
-//                    .header("Contet-Type", "application/json")
-//                    .header("platform", "android")
 
                 val request = requestBuilder.build()
                 chain.proceed(request)

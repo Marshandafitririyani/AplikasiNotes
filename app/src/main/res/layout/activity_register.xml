@@ -70,6 +70,7 @@
                 android:layout_marginStart="@dimen/_32sdp"
                 android:layout_marginEnd="@dimen/_32sdp"
                 android:gravity="start"
+                android:paddingStart="@dimen/_6sdp"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/_10sdp"
                 android:textColor="@color/black"
@@ -91,6 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:paddingStart="@dimen/_6sdp"
                 android:layout_marginStart="@dimen/_32sdp"
                 android:layout_marginEnd="@dimen/_32sdp"
                 android:gravity="start"
@@ -115,6 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:paddingStart="@dimen/_6sdp"
                 android:layout_marginStart="@dimen/_32sdp"
                 android:layout_marginEnd="@dimen/_32sdp"
                 android:gravity="center_vertical"
@@ -138,8 +141,8 @@
                 android:id="@+id/til_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_32sdp"
-                android:layout_marginEnd="@dimen/_32sdp"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginEnd="@dimen/_35sdp"
                 app:hintEnabled="false"
                 app:passwordToggleEnabled="true">
 
@@ -151,7 +154,7 @@
                     android:background="@color/transparent"
                     android:gravity="center_vertical"
                     android:inputType="textPassword"
-                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingStart="@dimen/_6sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp" />
 
@@ -190,8 +193,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_32sdp"
-                android:layout_marginEnd="@dimen/_32sdp"
+                android:layout_marginStart="@dimen/_35sdp"
+                android:layout_marginEnd="@dimen/_35sdp"
                 app:hintEnabled="false"
                 app:passwordToggleEnabled="true">
 
@@ -204,7 +207,7 @@
                     android:background="@color/transparent"
                     android:gravity="center_vertical"
                     android:inputType="textPassword"
-                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingStart="@dimen/_6sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp"
 

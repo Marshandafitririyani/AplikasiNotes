@@ -27,4 +27,8 @@ data class Category(
     @SerializedName("updated_at")
     val updated_at: String?
 
-) : Parcelable
+) : Parcelable {
+    override fun toString(): String {
+        return category.toString()
+    }
+}
