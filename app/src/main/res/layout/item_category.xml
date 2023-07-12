@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="data"
             type="com.maruchan.notes.data.room.category.Category" />
     </data>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="@dimen/_8sdp">
-
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Category category"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppinsregular"
-        android:textSize="@dimen/_13sdp"
-        android:text='@{data.category}'/>
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/_80sdp"
-        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsregular"
+            android:hint="@string/category_category"
+            android:text='@{data.category}'
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
 
-        <ImageView
-            android:id="@+id/img_edit"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:foreground="?selectableItemBackground"
-            android:src="@drawable/ic_edit"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_80sdp"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/img_delete"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:foreground="?selectableItemBackground"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:src="@drawable/ic_delete_black"/>
+            <ImageView
+                android:id="@+id/img_edit"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:foreground="?selectableItemBackground"
+                android:labelFor="@id/img_edit"
+                android:src="@drawable/ic_edit_black"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/img_delete"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:foreground="?selectableItemBackground"
+                android:labelFor="@id/img_delete"
+                android:src="@drawable/ic_delete_black"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-
-
-
-</LinearLayout>
 </layout>

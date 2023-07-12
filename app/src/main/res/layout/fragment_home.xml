@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -18,7 +18,6 @@
         tools:context=".ui.home.fragment.HomeFragment">
 
 
-
         <LinearLayout
             android:id="@+id/linear_home"
             android:layout_width="match_parent"
@@ -33,66 +32,70 @@
                 android:id="@+id/search_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_65sdp"
                 android:layout_weight="1"
-                android:layout_marginStart="@dimen/_5sdp"
                 android:background="@drawable/custome_background_search"
                 android:clickable="true"
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="@dimen/_5sdp"
                 android:elevation="30dp"
                 android:focusable="true"
-                android:hint="Search"
+                android:fontFamily="@font/poppinsregular"
+                android:hint="@string/search"
                 android:imeOptions="actionSearch"
-                android:padding="@dimen/_5sdp"
+                android:padding="@dimen/_7sdp"
                 android:paddingStart="@dimen/_11sdp"
+                android:textSize="@dimen/_12ssp"
                 app:defaultQueryHint="search notes"
-                app:queryHint="search notes" />
+                app:queryHint="search notes"
+                tools:ignore="Autofill,InefficientWeight,RtlSymmetry,TextFields" />
 
-            <EditText
-                android:id="@+id/search_category"
+            <AutoCompleteTextView
+                android:id="@+id/search_category_home"
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_65sdp"
-              android:layout_marginEnd="@dimen/_10sdp"
-                android:textSize="@dimen/_13sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:background="@drawable/custome_background_search"
                 android:clickable="true"
                 android:drawableEnd="@drawable/ic_drop_down"
                 android:elevation="30dp"
                 android:focusable="true"
+                android:fontFamily="@font/poppinsregular"
+                android:hint="@string/category"
                 android:imeOptions="actionSearch"
                 android:padding="@dimen/_6sdp"
                 android:paddingStart="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
                 app:defaultQueryHint="search notes"
                 app:queryHint="search notes"
-                android:hint="Category" />
+                tools:ignore="RtlSymmetry" />
 
         </LinearLayout>
 
 
-
-
-    <!--    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_3sdp"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.476"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_home"
-            app:spanCount="2"
-            tools:itemCount="10"
-            tools:listitem="@layout/item_note" />-->
+        <!--    <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.476"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linear_home"
+                app:spanCount="2"
+                tools:itemCount="10"
+                tools:listitem="@layout/item_note" />-->
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:paddingHorizontal="@dimen/_10sdp"
             android:paddingBottom="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -104,9 +107,9 @@
                 android:id="@+id/recycler_view_home"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                app:spanCount="2"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:spanCount="2"
                 tools:listitem="@layout/item_note" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -116,16 +119,18 @@
             android:id="@+id/btn_add_note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_210sdp"
+            android:layout_marginBottom="@dimen/_70sdp"
             android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:labelFor="@+id/btn_add_note"
             android:scaleType="fitEnd"
             android:src="@drawable/ic_post_add"
             app:fabCustomSize="70dp"
-            android:layout_marginStart="@dimen/_210sdp"
-            android:layout_marginBottom="@dimen/_70sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            />
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/tv_empty"
@@ -134,9 +139,9 @@
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_280sdp"
             android:layout_marginEnd="@dimen/_40sdp"
-            android:gravity="center"
-           android:text="File Note Is Empty"
             android:fontFamily="@font/poppinsregular"
+            android:gravity="center"
+            android:text="@string/file_note_is_empty"
             android:textSize="@dimen/_15ssp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

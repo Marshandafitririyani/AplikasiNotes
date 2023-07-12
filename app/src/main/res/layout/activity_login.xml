@@ -15,14 +15,14 @@
             android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_130sdp"
             android:alpha="0.3"
+            android:contentDescription="@string/todo3"
             android:src="@drawable/ic_note_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.432"
-            android:contentDescription="@string/todo3"/>
+            app:layout_constraintVertical_bias="0.432" />
 
         <LinearLayout
             android:id="@+id/login_form"
@@ -38,10 +38,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_100sdp"
+                android:layout_marginTop="@dimen/_90sdp"
+                android:fontFamily="@font/poppinsbold"
                 android:text="@string/login"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_30sdp"
+                android:textSize="@dimen/_27sdp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,23 +53,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_50sdp"
+                android:fontFamily="@font/poppinsbold"
                 android:gravity="start"
                 android:text="@string/phone_email"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/et_email_login"
+                android:id="@+id/et_email_or_phone_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_13sdp"
-                android:paddingStart="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_32sdp"
+                android:fontFamily="@font/poppinsmedium"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/_5sdp"
                 android:textColor="@color/black"
-                android:inputType="textEmailAddress" />
+                android:textSize="@dimen/_11ssp"
+                tools:ignore="Autofill,LabelFor,RtlSymmetry,TextFields" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,15 +80,15 @@
                 android:layout_marginStart="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_180sdp"
+                android:fontFamily="@font/poppinsbold"
                 android:gravity="start"
                 android:text="@string/password"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/et_email_login"
-                 />
+                app:layout_constraintTop_toTopOf="@id/et_email_or_phone_login" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/kk"
@@ -92,8 +96,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:layout_marginEnd="@dimen/_35sdp"
-                app:hintEnabled="false"
                 android:gravity="start"
+                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -104,11 +108,14 @@
                     android:id="@+id/et_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_13ssp"
-                    android:paddingStart="@dimen/_3sdp"
+                    android:autofillHints="password"
                     android:background="@color/transparent"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/_3sdp"
                     android:textColor="@color/black"
-                    android:inputType="textPassword" />
+                    android:textSize="@dimen/_11ssp"
+                    tools:ignore="LabelFor,RtlSymmetry" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -122,8 +129,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_30sdp"
+                    android:fontFamily="@font/poppinsmedium"
                     android:gravity="start"
-                    android:text="*Password must be 8 characters"
+                    android:text="@string/password_must_be_8_characters"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_11ssp" />
 
@@ -131,11 +139,13 @@
                     android:id="@+id/forget_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:foreground="?selectableItemBackground"
                     android:gravity="start"
-                    android:text="Forget?"
+                    android:text="@string/forget"
                     android:textColor="@color/blue40"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_11ssp" />
             </LinearLayout>
 
 
@@ -144,26 +154,29 @@
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:background="@drawable/custom_buttom"
+                android:fontFamily="@font/poppinsmedium"
                 android:gravity="center"
                 android:inputType="textEmailAddress"
                 android:paddingStart="@dimen/_10sdp"
-                android:text="Login"
+                android:text="@string/login"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_15sdp"
+                tools:ignore="RtlSymmetry,TextViewEdits" />
 
             <TextView
                 android:id="@+id/btn_biometrik"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="@dimen/_35sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/custom_buttom"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppinsmedium"
+                android:foreground="?selectableItemBackground"
                 android:gravity="center"
-                android:paddingStart="@dimen/_10sdp"
-                android:text="Biometrik"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp" />
+                android:text="@string/login_white_biometrik"
+                android:textColor="@color/blue40"
+                android:textSize="@dimen/_11sdp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -179,21 +192,23 @@
                     android:id="@+id/tv_have_an_account"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/poppinsmedium"
                     android:foreground="?selectableItemBackground"
                     android:gravity="center"
-                    android:text="don't have an account?"
+                    android:text="@string/don_t_have_an_account"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_13ssp" />
+                    android:textSize="@dimen/_11ssp" />
 
                 <TextView
                     android:id="@+id/tv_sign_up"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/_5sdp"
+                    android:fontFamily="@font/poppinsmedium"
                     android:foreground="?selectableItemBackground"
-                    android:text="Sign Up"
+                    android:text="@string/sign_up"
                     android:textColor="@color/blue40"
-                    android:textSize="@dimen/_13ssp" />
+                    android:textSize="@dimen/_11ssp" />
             </LinearLayout>
         </LinearLayout>
 

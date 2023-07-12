@@ -1,12 +1,10 @@
 package com.maruchan.notes.ui.home.activity
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.crocodic.core.api.ApiCode
 import com.crocodic.core.api.ApiObserver
 import com.crocodic.core.api.ApiResponse
 import com.crocodic.core.data.CoreSession
-import com.crocodic.core.extension.toJson
 import com.crocodic.core.extension.toList
 import com.crocodic.core.extension.toObject
 import com.google.gson.Gson
@@ -21,7 +19,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import org.json.JSONObject
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,6 +36,9 @@ class HomeViewModel @Inject constructor(
 
     private val _saveGetCategoryName = MutableSharedFlow<Category?>()
     val saveGetCategoryName = _saveGetCategoryName.asSharedFlow()
+
+    private val _saveGetCategory = MutableSharedFlow<List<Category?>>()
+    val saveGetCategory = _saveGetCategory.asSharedFlow()
 
     fun getProfile() = viewModelScope.launch {
         ApiObserver(
@@ -61,7 +61,6 @@ class HomeViewModel @Inject constructor(
             }
 
             override suspend fun onError(response: ApiResponse) {
-                Log.d("cek error", "err")
             }
 
 
@@ -69,6 +68,25 @@ class HomeViewModel @Inject constructor(
 
 
     }
+    fun getCategory() = viewModelScope.launch {
+        ApiObserver({ apiService.getCategory() }, false, object : ApiObserver.ResponseListener {
+            override suspend fun onSuccess(response: JSONObject) {
+                val data = response.getJSONArray(ApiCode.DATA).toList<Category>(gson)
+                _saveGetCategory.emit(data)
+                _apiResponse.emit(ApiResponse().responseSuccess("Category"))
+            }
+
+            override suspend fun onError(response: ApiResponse) {
+                super.onError(response)
+                _apiResponse.emit(ApiResponse().responseError())
+            }
+
+
+        })
+
+
+    }
+
 
 
 }

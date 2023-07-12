@@ -17,14 +17,18 @@
             android:layout_width="@dimen/_35sdp"
             android:layout_height="@dimen/_35sdp"
             android:src="@drawable/ic_arrow_back_"
+            android:labelFor="@+id/img_back"
+            android:foreground="?selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.076"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.023" />
+            app:layout_constraintVertical_bias="0.023"
+            tools:ignore="ContentDescription" />
 
         <ImageView
+            android:id="@+id/note"
             android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_130sdp"
             android:alpha="0.3"
@@ -34,7 +38,9 @@
             app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.432" />
+            app:layout_constraintVertical_bias="0.432"
+            android:labelFor="@+id/note"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,9 +53,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_60sdp"
-                android:text="Register"
+                android:text="@string/register"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_25sdp"
+                android:fontFamily="@font/poppinsbold"
+                android:textSize="@dimen/_20sdp"
                 android:textStyle="bold" />
 
             <TextView
@@ -57,9 +64,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:gravity="start"
-                android:text="Name"
+                android:text="@string/name"
+                android:fontFamily="@font/poppinsbold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />
 
             <EditText
@@ -71,10 +79,13 @@
                 android:layout_marginEnd="@dimen/_32sdp"
                 android:gravity="start"
                 android:paddingStart="@dimen/_6sdp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="@dimen/_10ssp"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/_10sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp" />
+                tools:ignore="LabelFor,RtlSymmetry"
+                android:autofillHints="username" />
 
             <TextView
                 android:id="@+id/tv_phone"
@@ -82,9 +93,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:gravity="start"
-                android:text="Phone Number"
+                android:text="@string/phone_number"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:fontFamily="@font/poppinsbold"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />
 
             <EditText
@@ -99,7 +111,10 @@
                 android:inputType="phone"
                 android:padding="@dimen/_10sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp" />
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="@dimen/_10ssp"
+                tools:ignore="LabelFor,RtlSymmetry"
+                android:autofillHints="phone" />
 
             <TextView
                 android:id="@+id/tv_email"
@@ -107,9 +122,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:gravity="start"
-                android:text="Email"
+                android:text="@string/email"
+                android:fontFamily="@font/poppinsbold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />
 
             <EditText
@@ -124,7 +140,10 @@
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/_10sdp"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp" />
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="@dimen/_10sdp"
+                tools:ignore="LabelFor,RtlSymmetry"
+                android:autofillHints="emailAddress" />
 
             <TextView
                 android:id="@+id/tv_password"
@@ -132,9 +151,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:gravity="start"
-                android:text="Password"
+                android:text="@string/password"
+                android:fontFamily="@font/poppinsbold"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +176,8 @@
                     android:inputType="textPassword"
                     android:paddingStart="@dimen/_6sdp"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_13sdp" />
+                    android:textSize="@dimen/_10ssp"
+                    tools:ignore="LabelFor,RtlSymmetry" />
 
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -169,9 +190,9 @@
                 android:layout_marginStart="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="start"
-                android:text="*Password must be 8 characters"
+                android:text="@string/password_must_be_8_characters"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp" />
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
                 android:id="@+id/tv_password_confirm"
@@ -179,10 +200,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppinsbold"
                 android:gravity="start"
-                android:text="Password Confirmation"
+                android:text="@string/password_confirmation"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -209,10 +231,8 @@
                     android:inputType="textPassword"
                     android:paddingStart="@dimen/_6sdp"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_13sdp"
-
-
-                    />
+                    android:textSize="@dimen/_12ssp"
+                    tools:ignore="LabelFor,RtlSymmetry" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -223,9 +243,9 @@
                 android:layout_marginStart="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="start"
-                android:text="*Password must be 8 characters"
+                android:text="@string/password_must_be_8_characters"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp"
+                android:textSize="@dimen/_10sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/til_confirm_password" />
@@ -237,7 +257,7 @@
                 android:layout_marginStart="@dimen/_60sdp"
                 android:layout_marginEnd="@dimen/_150sdp"
                 android:gravity="start"
-                android:text="Password didn't match"
+                android:text="@string/password_didn_t_match"
                 android:textColor="@color/text_red"
                 android:textSize="@dimen/_12ssp"
                 android:visibility="gone"
@@ -254,12 +274,14 @@
                 android:gravity="center"
                 android:inputType="textEmailAddress"
                 android:paddingStart="@dimen/_10sdp"
-                android:text="Register"
+                android:text="@string/register"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
+                android:textSize="@dimen/_13ssp"
+                android:fontFamily="@font/poppinsregular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/con_must" />
+                app:layout_constraintTop_toTopOf="@id/con_must"
+                tools:ignore="RtlSymmetry,TextViewEdits" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -274,9 +296,9 @@
                     android:layout_height="wrap_content"
                     android:foreground="?selectableItemBackground"
                     android:gravity="center"
-                    android:text="Have an account?"
+                    android:text="@string/have_an_account"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_13ssp" />
+                    android:textSize="@dimen/_12ssp" />
 
                 <TextView
                     android:id="@+id/tv_login"
@@ -284,9 +306,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:foreground="?selectableItemBackground"
-                    android:text="Login"
+                    android:text="@string/login"
                     android:textColor="@color/blue40"
-                    android:textSize="@dimen/_13ssp" />
+                    android:textSize="@dimen/_12ssp" />
             </LinearLayout>
 
         </LinearLayout>

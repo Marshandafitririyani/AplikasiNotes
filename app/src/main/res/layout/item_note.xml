@@ -1,56 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="data"
             type="com.maruchan.notes.data.room.note.Note" />
 
     </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="20dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:padding="@dimen/_5sdp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsregular"
-                android:textSize="@dimen/_15ssp"
-                android:hint="Title"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text='@{data.title}'
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppinsregular"
-                android:text='@{data.content}'
-                android:ellipsize="end"
-                android:maxLines="4"
-                android:hint=" Body Body Body Body Body Body Body"
-                android:textSize="@dimen/_10ssp" />
-
             <ImageView
+                android:id="@+id/img_notes_home"
+                imageUrlHelper='@{data.photo}'
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                imageUrlHelper='@{data.photo}'
-                android:scaleType="fitXY"
                 android:layout_marginTop="@dimen/_5sdp"
-                />
+                android:labelFor="@+id/img_notes_home"
+                android:scaleType="fitXY"
+                android:scaleY="1.1"
+                tools:ignore="ContentDescription" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:orientation="vertical"
+                android:padding="@dimen/_5sdp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppinsregular"
+                    android:hint="@string/title"
+                    android:maxLines="2"
+                    android:text='@{data.title}'
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppinsregular"
+                    android:gravity="start"
+                    android:hint="@string/body_body"
+                    android:maxLines="1"
+                    android:text='@{data.categories_name}'
+                    android:textColor="@color/yellow50"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppinsregular"
+                    android:hint="@string/body_body"
+                    android:maxLines="4"
+                    android:text='@{data.content}'
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/poppinsregular"
+                    android:gravity="end"
+                    android:hint="@string/body_body"
+                    android:maxLines="1"
+                    android:text='@{data.created_at_formatted}'
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp" />
+
+            </LinearLayout>
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 </layout>

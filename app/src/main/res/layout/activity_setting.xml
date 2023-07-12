@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="enableBiometric"
+            type="Boolean" />
+
+        <variable
+            name="hasBiometric"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.home.activity.HomeActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linear_layout_middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_back_setting"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:layout_marginStart="16dp"
+                android:foreground="?selectableItemBackground"
+                android:labelFor="@id/ib_back_red_profile"
+                android:src="@drawable/ic_back_black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:fontFamily="@font/poppinsmedium"
+                android:gravity="center"
+                android:text="@string/setting"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_15sdp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/btn_biometric"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked='@{enableBiometric}'
+                android:fontFamily="@font/poppinsregular"
+                android:foreground="?selectableItemBackground"
+                android:text="@string/biometric_auth"
+                android:textSize="@dimen/_15sdp"
+                android:visibility='@{hasBiometric ? View.VISIBLE : View.GONE}' />
+
+            <View
+                android:id="@+id/vw_two"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="@string/biometric_authentication_refers_to_a_cybersecurity_process_that_verifies_a_user_s_identity_using_their_unique_biological_traits_such_as_fingerprints_voices_retinas_and_facial_features"
+                android:textSize="@dimen/_10ssp" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:foreground="?selectableItemBackground"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="@string/drak_mode"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15ssp" />
+
+                <Switch
+                    android:id="@+id/switch_dark_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:gravity="center"
+                    android:onClick="buttonSwitch"
+                    android:textSize="@dimen/_15sdp"
+                    android:thumb="@drawable/ic_dark_mode"
+                    android:track="@drawable/bg_dark_mode"
+                    tools:ignore="UseSwitchCompatOrMaterialXml,UsingOnClickInXml" />
+            </FrameLayout>
+
+            <View
+                android:id="@+id/vw_mode"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="@string/dark_mode_or_dark_mode_itself_as_a_feature_to_replace_a_lighter_background_with_a_darker_one_and_can_protect_your_eyes_from_radiation"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/btn_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:foreground="?selectableItemBackground"
+                android:paddingEnd="@dimen/_10sdp"
+                android:text="@string/password"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                app:drawableEndCompat="@drawable/ic_key"
+                tools:ignore="RtlSymmetry" />
+
+            <View
+                android:id="@+id/vw_password"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/poppinsregular"
+                android:text="@string/you_can_change_your_password_if_you_forget_it_this_application_will_keep_your_password_secure"
+                android:textSize="@dimen/_10ssp" />
+
+
+            <TextView
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:foreground="?selectableItemBackground"
+                android:paddingEnd="@dimen/_10sdp"
+                android:text="@string/logout_account"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp"
+                app:drawableEndCompat="@drawable/ic_logout"
+                tools:ignore="RtlSymmetry" />
+
+            <View
+                android:id="@+id/vw_logout"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsregular"
+                android:text="@string/exit_process_to_cut_off_access_to_certain_computer_systems_or_services_and_may_delete_your_data"
+                android:textSize="@dimen/_10ssp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

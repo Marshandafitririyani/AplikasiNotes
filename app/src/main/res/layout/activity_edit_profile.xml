@@ -41,38 +41,40 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/img_back_edit_profile"
                     android:layout_width="@dimen/_35sdp"
                     android:layout_height="@dimen/_33sdp"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@drawable/custom_buttom_two"
-                    android:contentDescription="@string/todo3"
-                    android:src="@drawable/ic_back_black"
+                    android:foreground="?selectableItemBackground"
+                    android:labelFor="@+id/img_back_edit_profile"
+                    android:src="@drawable/ic_close"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
+                    android:fontFamily="@font/poppinsbold"
                     android:gravity="center"
                     android:text="@string/my_edit_profile"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/_20ssp"
+                    android:textSize="@dimen/_18ssp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageButton
-                    android:id="@+id/img_setting_edit_profile"
+                <ImageView
+                    android:id="@+id/btn_edit_profile"
                     android:layout_width="@dimen/_35sdp"
                     android:layout_height="@dimen/_33sdp"
                     android:layout_margin="@dimen/_10sdp"
                     android:contentDescription="@string/todo3"
-                    android:background="@drawable/custom_buttom_two"
-                    android:src="@drawable/ic_key"
+                    android:foreground="?selectableItemBackground"
+                    android:src="@drawable/ic_check_black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,50 +87,36 @@
                 android:layout_width="@dimen/_120sdp"
                 android:layout_height="@dimen/_120sdp"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/_10sdp"
+                android:layout_margin="@dimen/_15sdp"
                 android:contentDescription="@string/todo3"
+                android:foreground="?selectableItemBackground"
                 android:src="@color/yellow10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:layout_width="@dimen/_180sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_35ssp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
-                android:text="@string/akun"
+                android:fontFamily="@font/poppinsbold"
+                android:text="@string/account"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18ssp"
+                android:textSize="@dimen/_15ssp"
                 android:textStyle="bold" />
-
-         <!--   <EditText
-                android:id="@+id/et_name_edit_profile"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                android:drawableStart="@drawable/ic_person"
-                android:drawablePadding="@dimen/_10sdp"
-                android:gravity="center_vertical"
-                android:hint="@string/name_empty"
-                android:inputType="textEmailAddress"
-                android:paddingStart="@dimen/_10sdp"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
-                tools:ignore="Autofill,RtlSymmetry" />-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/teks_input_layout_email_login"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
                 android:layout_gravity="center"
-                android:hint="Name"
+                android:layout_marginStart="@dimen/_30sdp"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:hint="@string/name"
                 app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
                 app:boxCornerRadiusBottomStart="@dimen/_10sdp"
                 app:boxCornerRadiusTopEnd="@dimen/_10sdp"
@@ -144,25 +132,13 @@
                     android:layout_gravity="center"
                     android:drawableStart="@drawable/ic_person"
                     android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/poppinsmedium"
                     android:inputType="textPersonName"
                     android:textColor="@color/black"
                     app:hintEnabled="false"
                     tools:ignore="Autofill,LabelFor" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_edit_profile"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/_220sdp"
-                android:background="@drawable/custom_buttom_two"
-                android:foreground="?selectableItemBackground"
-                android:text="@string/save"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp" />
 
         </LinearLayout>
 

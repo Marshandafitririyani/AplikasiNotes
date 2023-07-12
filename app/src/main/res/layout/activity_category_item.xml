@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.category.item.CategoryItemActivity">
+    tools:context=".ui.category.fragment.CategoryFragment">
 
     <LinearLayout
         android:id="@+id/linear_category_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:background="@color/yellow10"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,13 +20,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_ctegory"
-            android:fontFamily="@font/poppinsregular"
-            android:textSize="@dimen/_20ssp"
             android:layout_margin="@dimen/_5sdp"
-            android:gravity="center"/>
+            android:fontFamily="@font/poppinsregular"
+            android:gravity="center"
+            android:text="@string/add_ctegory"
+            android:textSize="@dimen/_20ssp" />
     </LinearLayout>
-
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

@@ -1,6 +1,5 @@
 package com.maruchan.notes.ui.favourite
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.crocodic.core.api.ApiCode
 import com.crocodic.core.api.ApiObserver
@@ -36,19 +35,11 @@ class FavoriteViewModel @Inject constructor(
     fun getNote() = viewModelScope.launch {
         ApiObserver({ apiService.getNotes() }, false, object : ApiObserver.ResponseListener {
             override suspend fun onSuccess(response: JSONObject) {
-                Log.d("cek ss", "succes")
                 val data = response.getJSONArray(ApiCode.DATA).toList<Note>(gson)
                 _saveFavourite.emit(data)
             }
-
             override suspend fun onError(response: ApiResponse) {
-                Log.d("cek error", "err")
             }
-
-
         })
-
-
     }
-
 }

@@ -22,8 +22,6 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,12 +35,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
 
 
         binding.btnLogin.setOnClickListener {
-            if (binding.etEmailLogin.isEmptyRequired(R.string.label_must_fill) ||
+            if (binding.etEmailOrPhoneLogin.isEmptyRequired(R.string.label_must_fill) ||
                 binding.etLoginPassword.isEmptyRequired(R.string.label_must_fill)
             ) {
                 return@setOnClickListener
             }
-            val emailOrPhone = binding.etEmailLogin.textOf()
+            val emailOrPhone = binding.etEmailOrPhoneLogin.textOf()
             val password = binding.etLoginPassword.textOf()
 
 
@@ -78,7 +76,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layou
             .setNegativeButtonText("Cancel")
         val promptInfo = builder.build()
         val biometricPrompt= initBiometricPrompt{
-            viewModel.login(session.getString(Const.BIOMETRIC.EMAIL), session.getString(Const.BIOMETRIC.PASSWORD))
+            viewModel.login(session.getString(Const.BIOMETRIC.EMAILORPHONE), session.getString(Const.BIOMETRIC.PASSWORD))
         }
         biometricPrompt.authenticate(promptInfo)
     }

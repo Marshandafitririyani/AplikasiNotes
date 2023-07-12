@@ -1,7 +1,6 @@
 package com.maruchan.notes.ui.category.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -40,7 +39,7 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
                 holder.binding.data = item
                 holder.binding.imgDelete.setOnClickListener {
                     val builder = android.app.AlertDialog.Builder(requireContext())
-                    builder.setMessage("Do you want to delete the category")
+                    builder.setMessage(R.string.delete_the_category)
                         .setCancelable(false)
                         .setPositiveButton("Delete") { dialog, id ->
                             categoryId.let {

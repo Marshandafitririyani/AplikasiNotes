@@ -10,15 +10,18 @@
         tools:context=".ui.splashscreen.SplashScreenActivity">
 
         <ImageView
+            android:id="@+id/img_note_screen"
             android:layout_width="@dimen/_200sdp"
             android:layout_height="@dimen/_200sdp"
+            android:labelFor="@+id/img_note_screen"
             android:src="@drawable/ic_notes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.498" />
+            app:layout_constraintVertical_bias="0.498"
+            tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

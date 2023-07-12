@@ -1,16 +1,13 @@
 package com.maruchan.notes.ui.register
 
 import androidx.lifecycle.viewModelScope
-import com.crocodic.core.api.ApiCode
 import com.crocodic.core.api.ApiObserver
 import com.crocodic.core.api.ApiResponse
-import com.crocodic.core.api.ApiStatus
 import com.crocodic.core.data.CoreSession
 import com.google.gson.Gson
 import com.maruchan.notes.api.ApiService
 import com.maruchan.notes.base.BaseViewModel
 import com.maruchan.notes.data.room.user.UserDao
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import org.json.JSONObject
@@ -38,6 +35,7 @@ class RegisterViewModel @Inject constructor(
                     _apiResponse.emit(ApiResponse().responseError())
                 }
 
-            })
+            }
+        )
     }
 }

@@ -51,10 +51,10 @@ class AddNotesActivity :
         notes = intent.getParcelableExtra(Const.NOTE.NOTE)
         oldTitle = notes?.title
         oldContent = notes?.content
-        oldCategory = notes?.categories_id
+        oldCategory = notes?.categories_name
         binding.photo = notes?.photo
         binding.character.text = notes?.content?.length.toString()
-        binding.imageNote.isVisible = notes?.photo?.isNullOrEmpty() == false
+        binding.imageNote.isVisible = notes?.photo.isNullOrEmpty() == false
 
 
     }
@@ -262,8 +262,8 @@ class AddNotesActivity :
             }
         }
 
-        val btnCancle = customLayout.findViewById<TextView>(R.id.btn_cancle_delete)
-        btnCancle.setOnClickListener {
+        val btnCancl = customLayout.findViewById<TextView>(R.id.btn_cancle_delete)
+        btnCancl.setOnClickListener {
             dialog.dismiss()
         }
         dialog.show()

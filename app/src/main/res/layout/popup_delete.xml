@@ -25,17 +25,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_25sdp"
-                android:gravity="center"
                 android:fontFamily="@font/poppinsregular"
-                android:text="Do you Want To Delete Note?"
+                android:gravity="center"
+                android:text="@string/do_you_want_to_delete_note"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp" />
+                android:textSize="@dimen/_15ssp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_25sdp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -45,10 +45,10 @@
                     android:layout_height="@dimen/_35sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/custom_buttom"
+                    android:fontFamily="@font/poppinsregular"
                     android:foreground="?selectableItemBackground"
                     android:gravity="center"
-                    android:text="Cancle"
-                    android:fontFamily="@font/poppinsregular"
+                    android:text="@string/cancle"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13ssp"
@@ -62,10 +62,10 @@
                     android:layout_height="@dimen/_35sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:background="@drawable/custom_buttom"
+                    android:fontFamily="@font/poppinsregular"
                     android:foreground="?selectableItemBackground"
                     android:gravity="center"
-                    android:text="Delete"
-                    android:fontFamily="@font/poppinsregular"
+                    android:text="@string/delete"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13ssp"

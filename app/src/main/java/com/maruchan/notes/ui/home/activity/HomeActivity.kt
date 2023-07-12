@@ -55,7 +55,7 @@ class HomeActivity :  BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
                     viewModel.user.collect { data ->
-                        binding?.user = data
+                        binding.user = data
                         if (isUser) {
                             getProfile()
                             isUser = false
@@ -71,6 +71,8 @@ class HomeActivity :  BaseActivity<ActivityHomeBinding, HomeViewModel>(R.layout.
     private fun getProfile(){
         viewModel.getProfile()
     }
+
+
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {

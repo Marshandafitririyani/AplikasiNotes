@@ -82,7 +82,7 @@ class EditProfileViewModel @Inject constructor(
 
     }
 
-    fun editPassword(newPassword: String?, passwordConfirmation: String?) = viewModelScope.launch {
+    /*fun editPassword(newPassword: String?, passwordConfirmation: String?) = viewModelScope.launch {
         ApiObserver({ apiService.editPassword(newPassword, passwordConfirmation) },
             false, object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
@@ -95,6 +95,6 @@ class EditProfileViewModel @Inject constructor(
                 }
             }
         )
-    }
+    }*/
 
 }

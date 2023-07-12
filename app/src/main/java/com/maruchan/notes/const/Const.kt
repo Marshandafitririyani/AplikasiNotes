@@ -6,14 +6,15 @@ object Const {
         const val FCM_TOKEN = "fcm_token"
     }
     object LIST{
-        const val RELOAD = 876 // TODO: result code untuk memberi tahu harus reload data lagi
+        const val RELOAD = 876
     }
     object NOTE{
         const val NOTE = "note"
     }
 
     object BIOMETRIC{
-        const val EMAIL ="email"
+        const val BIOMETRIC = "biometric"
+        const val EMAILORPHONE ="email"
         const val PASSWORD ="password"
     }
 

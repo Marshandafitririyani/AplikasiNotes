@@ -20,7 +20,6 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import org.json.JSONObject
-import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
 
@@ -87,7 +86,6 @@ class AddNotesViewModel @Inject constructor(
 
     }
 
-    //Todo: ciri default ada (sama denganya "=") setelah tipe datanya
     fun createNote(title: String?, content: String?, categoryId: String?, photo: File? = null) =
         viewModelScope.launch {
             if (photo != null) {
@@ -201,7 +199,6 @@ class AddNotesViewModel @Inject constructor(
             object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
                     _saveFavourite.emit(ApiResponse().responseSuccess("favorite"))
-                    Timber.d("cek api like $response")
                 }
             }
         )
@@ -215,7 +212,6 @@ class AddNotesViewModel @Inject constructor(
             object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
                     _saveFavourite.emit(ApiResponse().responseSuccess("unFavorite"))
-                    Timber.d("cek api like $response")
                 }
             }
         )

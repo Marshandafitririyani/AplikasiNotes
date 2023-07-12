@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="yelloww">#FBECAE</color>
     <color name="yellow">#FFE684</color>
     <color name="yellow11">#F6D450</color>
     <color name="yellow10">#F1C40F</color>
@@ -21,4 +22,6 @@
     <color name="blue30">#0679FD</color>
     <color name="blue40">#0061D1</color>
     <color name="abuabu">#3c455c</color>
+    <color name="abu">#7C7E85</color>
+    <color name="gray">#B8BABF</color>
 </resources>

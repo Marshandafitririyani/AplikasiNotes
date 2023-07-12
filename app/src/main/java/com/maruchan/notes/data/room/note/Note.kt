@@ -24,6 +24,9 @@ data class Note(
     @SerializedName("created_by")
     val created_by: String?,
     @Expose
+    @SerializedName("categories_name")
+    val categories_name: String?,
+    @Expose
     @SerializedName("categories_id")
     val categories_id: String?,
     @Expose

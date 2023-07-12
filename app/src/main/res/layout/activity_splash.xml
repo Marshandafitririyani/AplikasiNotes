@@ -21,20 +21,23 @@
 
 
             <ImageView
+                android:id="@+id/img_note_splash"
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="@dimen/_200sdp"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_120sdp"
-                android:src="@drawable/ic_notes" />
+                android:labelFor="@+id/img_note_splash"
+                android:src="@drawable/ic_notes"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="@dimen/_50sdp"
-                android:padding="@dimen/_8sdp"
                 android:fontFamily="@font/poppinsregular"
-                android:text="An application that users use to create and store personal notes, and or picture notes."
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/an_application_that_users_use_to_create_and_store_personal_notes_and_or_picture_notes"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_12sdp" />
 
@@ -45,13 +48,14 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_40sdp"
                 android:background="@drawable/custom_buttom"
-                android:gravity="center"
                 android:fontFamily="@font/poppinsregular"
+                android:gravity="center"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/_10sdp"
-                android:text="Enter"
+                android:text="@string/enter"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp" />
+                android:textSize="@dimen/_15sdp"
+                tools:ignore="TextViewEdits" />
         </LinearLayout>
 
 
