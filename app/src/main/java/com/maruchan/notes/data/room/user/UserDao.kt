@@ -3,6 +3,7 @@ package com.maruchan.notes.data.room.user
 import androidx.room.Dao
 import androidx.room.Query
 import com.crocodic.core.data.CoreDao
+import com.maruchan.notes.data.room.category.Category
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -21,6 +22,8 @@ interface UserDao : CoreDao<User> {
 
     @Query("DELETE FROM User WHERE idRoom = 1")
     suspend fun logout()
+
+
 
 
 

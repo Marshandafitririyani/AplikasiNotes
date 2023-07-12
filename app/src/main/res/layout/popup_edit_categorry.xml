@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="data"
+            type="com.maruchan.notes.data.room.category.Category" />
+    </data>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,6 +45,7 @@
                 android:layout_marginEnd="@dimen/_18sdp"
                 android:background="@color/transparent"
                 android:drawablePadding="@dimen/_8sdp"
+                android:text='@{data.category}'
                 android:fontFamily="@font/poppinsregular"
                 android:gravity="start"
                 android:inputType="text"

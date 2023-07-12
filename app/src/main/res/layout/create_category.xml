@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,6 +41,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_18sdp"
                 android:autofillHints="name"
+
                 android:background="@color/transparent"
                 android:drawablePadding="@dimen/_8sdp"
                 android:fontFamily="@font/poppinsregular"

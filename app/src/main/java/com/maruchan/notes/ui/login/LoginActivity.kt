@@ -23,6 +23,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.navigationBarColor = ContextCompat.getColor(this,R.color.yellow)
         super.onCreate(savedInstanceState)
 
         binding.tvSignUp.setOnClickListener {

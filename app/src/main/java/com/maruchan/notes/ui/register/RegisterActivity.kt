@@ -2,6 +2,7 @@ package com.maruchan.notes.ui.register
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -21,6 +22,7 @@ import kotlinx.coroutines.launch
 class RegisterActivity :
     BaseActivity<ActivityRegisterBinding, RegisterViewModel>(R.layout.activity_register) {
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.navigationBarColor = ContextCompat.getColor(this,R.color.yellow)
         super.onCreate(savedInstanceState)
         observe()
         initClick()

@@ -1,6 +1,7 @@
 package com.maruchan.notes.ui.splash
 
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.crocodic.core.base.viewmodel.CoreViewModel
 import com.crocodic.core.extension.openActivity
 import com.maruchan.notes.R
@@ -18,8 +19,10 @@ class SplashActivity :
     @Inject
     lateinit var userDao: UserDao
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.navigationBarColor = ContextCompat.getColor(this,R.color.yellow)
 
         binding.btnEnter.setOnClickListener {
             openActivity<LoginActivity> ()

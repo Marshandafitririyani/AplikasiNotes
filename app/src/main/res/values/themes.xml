@@ -11,15 +11,8 @@
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/yellow10</item>
+
         <!-- Customize your theme here. -->
     </style>
 
-    <!--<style name="Theme.Notes.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.Notes.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.Notes.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 </resources>

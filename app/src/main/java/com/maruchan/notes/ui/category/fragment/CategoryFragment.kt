@@ -1,6 +1,7 @@
 package com.maruchan.notes.ui.category.fragment
 
 import android.os.Bundle
+import android.se.omapi.Session
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -12,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import com.crocodic.core.api.ApiStatus
 import com.crocodic.core.base.adapter.ReactiveListAdapter
 import com.crocodic.core.base.fragment.CoreFragment
+import com.crocodic.core.data.CoreSession
 import com.crocodic.core.extension.textOf
 import com.maruchan.notes.R
 import com.maruchan.notes.data.room.category.Category
@@ -19,6 +21,7 @@ import com.maruchan.notes.databinding.FragmentCategoryBinding
 import com.maruchan.notes.databinding.ItemCategoryBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment_category) {
@@ -83,8 +86,11 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
 
         }
     }
+    @Inject
+    lateinit var session: CoreSession
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
 
         observe()
@@ -92,6 +98,7 @@ class CategoryFragment : CoreFragment<FragmentCategoryBinding>(R.layout.fragment
         initClick()
         search()
         getCategory()
+
 
 
     }
