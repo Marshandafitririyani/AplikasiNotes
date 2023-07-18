@@ -1,11 +1,11 @@
 package com.maruchan.notes.data.injection
 
 import android.content.Context
-import com.crocodic.core.BuildConfig
 import com.crocodic.core.data.CoreSession
 import com.crocodic.core.helper.okhttp.SSLTrust
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import com.intuit.sdp.BuildConfig
 import com.maruchan.notes.api.ApiService
 import com.maruchan.notes.const.Const
 import com.maruchan.notes.data.database.AppDatabase
@@ -77,7 +77,8 @@ class DataModule {
     @Provides
     fun provideApiService(okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://magang.crocodic.net/ki/Rainer/KI_Advance_MyNote/public/")
+//            .baseUrl("https://magang.crocodic.net/ki/Rainer/KI_Advance_MyNote/public/")
+            .baseUrl(com.maruchan.notes.BuildConfig.API_URL)
             .addConverterFactory(ScalarsConverterFactory.create())
             .client(okHttpClient)
             .build().create(ApiService::class.java)
