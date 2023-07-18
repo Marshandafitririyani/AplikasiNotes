@@ -14,7 +14,7 @@ object Const {
 
     object BIOMETRIC{
         const val BIOMETRIC = "biometric"
-        const val EMAILORPHONE ="email"
+        const val EMAILORPHONE ="email_or_phone"
         const val PASSWORD ="password"
     }
 

@@ -24,7 +24,7 @@
     <string name="available">Features not yet available</string>
     <string name="available_category">The feature is not yet available, use the features above first</string>
     <string name="add_ctegory">Add Ctegory</string>
-    <string name="loading">Loading...</string>
+    <string name="loading">Loading…</string>
     <string name="favorite">favorite</string>
     <string name="todo3">TODO</string>
     <string name="my_edit_profile">Edit Profile</string>
@@ -45,8 +45,8 @@
     <string name="email_empty">Email Empty</string>
     <string name="phone">Phone</string>
     <string name="phone_empty">Phone Empty</string>
-    <string name="register_failed">Register Failed...</string>
-    <string name="please_wait_register">Please Wait Register...</string>
+    <string name="register_failed">Register Failed…</string>
+    <string name="please_wait_register">Please Wait Register…</string>
     <string name="setting">Setting</string>
     <string name="biometric_auth">Biometric Auth</string>
     <string name="biometric_authentication_refers_to_a_cybersecurity_process_that_verifies_a_user_s_identity_using_their_unique_biological_traits_such_as_fingerprints_voices_retinas_and_facial_features">Biometric authentication refers to a cybersecurity process that verifies a user\'s identity using their unique biological traits such as fingerprints, voices, retinas, and facial features.</string>

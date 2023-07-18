@@ -31,9 +31,7 @@ class SettingViewModel @Inject constructor(
             false, object : ApiObserver.ResponseListener {
                 override suspend fun onSuccess(response: JSONObject) {
                     _apiResponse.emit(ApiResponse().responseSuccess("Logout Success"))
-                    session.clearAll()
                     userDao.logout()
-                    logoutSuccess()
                 }
 
                 override suspend fun onError(response: ApiResponse) {
